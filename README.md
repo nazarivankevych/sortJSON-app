@@ -13,38 +13,38 @@ This means that you can run this script on any path you want.
 But before running, you need to create a ```modified.json``` file in the specific folder of the audit task. 
 Example:
 ```
-Can be created in the folder of specific atomic. In my case, it is CheckPointSmart1-CreateAccessRule__definition_workflow_02AK3KCXMEC8A0EKa1UdtQDq6d3FCiKUfzI/
+Can be created in the folder of specific atomic. In my case, it is <product_name>__definition_workflow_02AK3KCXMEC8A0EKa1UdtQDq6d3FCiKUfzI/
 ```
 
 Where folder is the name of atomic. Under the original version from the repo, we create a modified.json file, where you put your changes.
 
 After that you run the script, for example, my script is in:
-> /Users/\<username>\/Documents/accessSortJSON
+> /Users/\<username>\/<path_to_folder>/accessSortJSON
 
 Need to put the path to your folder in variable ```BASE_DIRECTORY```.
 
 ```python
-python -m main  ~/Documents/sxo-05-system-objects/Atomics  --save
+python -m main  ~/<path_to_folder>  --save
 ```
 
 This script works with specific folders of the name of atomic. That is why in <b>constants.py</b> you need to put the first part of the name per-product. The list of products I will live on comment in <b>constants.py</b>
 
 <em>Example</em>
 ```python
-# Base directory from where to start searching for specific product directories
-BASE_DIRECTORY = '/Users/<username>/Documents/accessSortJSON/'
+# Base directory to start searching for specific products directories
+BASE_DIRECTORY = '<base directory>'
 
 # Pattern to match original files
-ORIGINAL_FILE_PATTERN = 'definition_workflow_*.json'
+ORIGINAL_FILE_PATTERN = '<original file name pattern>'
 
-# Pattern to match directories starting with, here you need to set up of products
-DIRECTORY_PATTERN = 'CheckPointSmart1*'
+# Pattern to match directories starting with
+DIRECTORY_PATTERN = '<product name>'
 
-# Pattern to match modified files, this thing is needed for comparing modified.json with the original file
-MODIFIED_FILE_PATTERN = 'modified*.json'
+# Pattern to match modified files
+MODIFIED_FILE_PATTERN = '<modified file name>'
 
 # Pattern to match corrected files
-CORRECTED_FILE_PATTERN = 'corrected*.json'
+CORRECTED_FILE_PATTERN = '<corrected file name>'
 ```
 
 ### v1.0
